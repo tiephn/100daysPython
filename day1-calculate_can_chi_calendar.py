@@ -34,14 +34,14 @@ def calculate_can_chi_calendar(year):
     elif remainder == 9:
         result = 'Kỷ'
 
-    #Chi: lấy năm sinh chia cho 12 và lấy phần dư. Nếu phần dư bằng 0 tương
-    #ứng với Thân, 1 tương ứng với Dậu, tiếp tục cho tới 11 tương ứng với Mùi
+    # Chi: lấy năm sinh chia cho 12 và lấy phần dư. Nếu phần dư bằng 0 tương
+    # ứng với Thân, 1 tương ứng với Dậu, tiếp tục cho tới 11 tương ứng với Mùi
     remainder2 = year % 12
 
     if remainder2 == 0:
         result += ' Thân'
     elif remainder2 == 1:
-        result += ' Dậu'    
+        result += ' Dậu'
     elif remainder2 == 2:
         result += ' Tuất'
     elif remainder2 == 3:
@@ -62,18 +62,23 @@ def calculate_can_chi_calendar(year):
         result += ' Ngọ'
     elif remainder2 == 11:
         result += ' Mùi'
-    
+
     return result
 
-#Sử dụng List
+# Sử dụng List
+
+
 def calculate_can_chi_calendar2(year):
-    can_list = ['Canh', 'Tân', 'Nhâm', 'Quý', 'Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ']
-    chi_list = ['Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi']
+    can_list = ['Canh', 'Tân', 'Nhâm', 'Quý',
+                'Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ']
+    chi_list = ['Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý',
+                'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi']
 
     can = can_list[year % 10]
     chi = chi_list[year % 12]
 
     return f"{can} {chi}"
+
 
 print(f"Cách 1 if-else: {calculate_can_chi_calendar(2024)}")
 print(f"Cách 2 list: {calculate_can_chi_calendar2(2024)}")
